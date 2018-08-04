@@ -1,3 +1,24 @@
+clear 
+
 % load and initialize data 
-data = load("pathlength.txt");
-wave1 = data(find(data(:,3)==1),1:2);
+data = load("pathlength_totr2050.txt");
+wave1 = data(data(:,3)==1,1:2);
+wave2 = data(data(:,3)==2,1:2);
+wave3 = data(data(:,3)==3,1:2);
+
+% fitting parameters
+p = polyfit(wave1(:,1),wave1(:,2),1);
+beta = - p(1)*0.3;
+plotlabel = "
+
+figure(1)
+    scatter(wave1(:,1),wave1(:,2),'g')
+   
+hold on
+    scatter(wave2(:,1),wave2(:,2),'b')
+    scatter(wave3(:,1),wave3(:,2),'r')
+    plot(wave1(:,1),polyval(p,wave1(:,1)))
+    xlabel('Radial height [mm]');
+    ylabel('Delay [ps]');
+    legend('800nm','780nm','820nm');
+hold off
