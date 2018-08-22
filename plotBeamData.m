@@ -1,6 +1,7 @@
+clear all;
 
-folderloc = 'C:\\Users\\krish\\Documents\\ZEMAX\\dla_slm\\simulation_data';
-filename = '\\phasedata_SLMon.txt';
+folderloc = 'D:\\Documents\\ZEMAX\\Zemax-DLA-SLM\\simulation_data';
+filename = '\\powerdata_SLMon.txt';
 lineSkip = 16;
 % x data
 fid = fopen([folderloc filename]);
@@ -8,9 +9,8 @@ for i=1:lineSkip
     fgetl(fid);
 end
 
-beamdata = imresize(fscanf(fid,'%f'),[256 256]);
+beamdata = fscanf(fid,'%f');
+beam = reshape(beamdata',[256 256])';
 
-figure
-imagesc(beamdata)
-
-fclose(fid); 
+figure 
+imagesc(beam)

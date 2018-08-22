@@ -1,6 +1,6 @@
 clear all;
 %% Load data in 
-folderloc = 'C:\\Users\\krish\\Documents\\ZEMAX\\dla_slm\\simulation_data';
+folderloc = 'D:\\Documents\\ZEMAX\\Zemax-DLA-SLM\\simulation_data';
 xbeamOn_filename = '\\x_beamdata_slmON.txt';
 xbeamfilename = '\\x_beamdata.txt';
 ybeamfilename = '\\y_beamdata_slmON.txt';
@@ -37,13 +37,13 @@ xOn_beam = formatBeamData(table_xOn_header, table_xOn);
 y_beam = formatBeamData(table_y_header, table_y);
 
 %% plot data
-Z = [0 1202.43 1368.42 1602.17 1719.87 1747.87 2425.87 2845.23];
-X = [x_beam.Size(3) x_beam.Size(6) x_beam.Size(10) x_beam.Size(14)...
-    x_beam.Size(16) x_beam.Size(20) x_beam.Size(24) x_beam.Size(27)];
-X_On = [xOn_beam.Size(3) xOn_beam.Size(6) xOn_beam.Size(10) xOn_beam.Size(14)...
-    xOn_beam.Size(16) xOn_beam.Size(20) xOn_beam.Size(24) xOn_beam.Size(27)];
-Y = [y_beam.Size(3) y_beam.Size(6) y_beam.Size(10) y_beam.Size(14)...
-    y_beam.Size(16) y_beam.Size(20) y_beam.Size(24) y_beam.Size(27)];
+Z = [0 1202.43 1368.42 1478.42 1602.17 1719.87 1747.87 2069.97 2425.87 2845.23];
+X = [x_beam.Size(3) x_beam.Size(6) x_beam.Size(10) x_beam.Size(14) x_beam.Size(15)...
+    x_beam.Size(17) x_beam.Size(21) x_beam.Size(25) x_beam.Size(26) x_beam.Size(29)];
+X_On = [xOn_beam.Size(3) xOn_beam.Size(6) xOn_beam.Size(10) xOn_beam.Size(14) xOn_beam.Size(15)...
+    xOn_beam.Size(17) xOn_beam.Size(21) xOn_beam.Size(25) xOn_beam.Size(26) xOn_beam.Size(29)];
+Y = [y_beam.Size(3) y_beam.Size(6) y_beam.Size(10) y_beam.Size(14) y_beam.Size(15)...
+    y_beam.Size(17) y_beam.Size(21) y_beam.Size(25) y_beam.Size(26) y_beam.Size(29)];
 
 figure(1)
     plot(Z,X,'--')
@@ -53,4 +53,6 @@ hold on
     plot(Z,Y,'-x')
     legend('0th','perp', 'accel')
     title('Spot-sizes')
+    xlabel('z [mm]') % x-axis label
+    ylabel('Size (waist) [mm]') % y-axis label
 hold off
