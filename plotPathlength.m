@@ -2,7 +2,7 @@ clear
 
 % load and initialize data 
 pathname = 'C:\\Users\\krish\\Documents\\ZEMAX\\dla_slm\\simulation_data';
-filename = '\\pathlength_stopSLM_ON.txt';
+filename = '\\pathlength_drift394.txt';
 data = load([pathname filename]);
 wave1 = data(data(:,3)==1,1:2);
 wave2 = data(data(:,3)==2,1:2);
